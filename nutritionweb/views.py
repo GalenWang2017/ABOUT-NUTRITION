@@ -203,11 +203,7 @@ def post1(request): #新增使用者頁面
         userWeight = request.POST['userWeight']
         userId =request.POST['userId']
         print("from web:"+str(userId))
-        if check_userdata_exist(userId):
-            print("userdata_exist")
-            return render(request,'post1.html',locals())
-        else:
-            unit = lineUser.objects.create(userName=userName, userAge=userAge, userGender=userGender,userHeight=userHeight, userWeight=userWeight,userId=userId)
-            unit.save()
-            return render(request,'post1.html',locals())
+        
+        unit = lineUser.objects.create(userName=userName, userAge=userAge, userGender=userGender,userHeight=userHeight, userWeight=userWeight,userId=userId)
+        unit.save()
     return render(request,'post1.html',locals())
